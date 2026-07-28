@@ -48,20 +48,6 @@
       overflow-x: hidden;
     }
 
-    /* ambient red glow behind logo */
-    body::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 540px;
-      height: 380px;
-      background: radial-gradient(ellipse at center, rgba(225,58,46,.06), transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .stage {
       width: 100%;
       max-width: 420px;
