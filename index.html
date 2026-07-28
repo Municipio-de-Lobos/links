@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <title>Municipio de Lobos · Links</title>
+  <meta name="description" content="Sitio oficial, redes sociales y accesos del Municipio de Lobos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* ►► TAMAÑO DEL LOGO: cambiá solo este número ◄◄ */
+      --logo-width:  150px;
+
+      --bg:          #FFFFFF;
+      --bg-2:        #FFFFFF;
+      --ink:         #161616;
+      --ink-2:       #3A3A3A;
+      --muted:       #7A7A7A;
+      --line:        #EBEBEB;
+      --line-2:      #E0E0E0;
+      --red:         #E13A2E;
+      --red-dark:    #C22E23;
+      --red-soft:    #FDECEA;
+      --red-soft-2:  #FBD9D5;
+      --radius:      16px;
+      --shadow-1:    0 1px 2px rgba(0,0,0,.04), 0 1px 0 rgba(0,0,0,.02);
+      --shadow-2:    0 10px 30px -12px rgba(0,0,0,.14), 0 2px 6px rgba(0,0,0,.05);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 40px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ambient red glow behind logo */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 540px;
+      height: 380px;
+      background: radial-gradient(ellipse at center, rgba(225,58,46,.06), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stage {
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    /* ── header ── */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px 0 20px;
+    }
+    header .logo {
+      width: var(--logo-width);
+      max-width: 90%;
+      height: auto;
+      display: block;
+    }
+    /* ── featured links ── */
+    section.featured {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flink {
+      display: grid;
+      grid-template-columns: 44px 1fr 24px;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 16px;
+      background: linear-gradient(135deg, #FFF6F5 0%, #FFFFFF 65%);
+      border: 1px solid var(--red-soft-2);
+      border-radius: var(--radius);
+      color: var(--ink);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      box-shadow: 0 0 0 1px rgba(225,58,46,.05),
+                  var(--shadow-2),
+                  0 0 26px -10px rgba(225,58,46,.45);
+      transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .flink:hover { transform: translateY(-1px); }
+    .flink:active { transform: translateY(0); }
+
+    /* animated shine sweep to draw the eye */
+    .flink::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.75) 50%, transparent 80%);
+      transform: translateX(-120%);
+      animation: shine 3.2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes shine {
+      0%, 35%   { transform: translateX(-120%); }
+      65%, 100% { transform: translateX(120%); }
+    }
+    @keyframes pulse-white {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: .35; }
+    }
+
+    .flink .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: var(--red-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red-dark);
+      flex-shrink: 0;
+      z-index: 2;
+      position: relative;
+    }
+    .flink .icon svg { width: 19px; height: 19px; display: block; }
+
+    .flink .body { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; z-index: 2; position: relative; }
+    .flink .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      padding: 2px 8px;
+      border-radius: 999px;
+      line-height: 1.5;
+    }
+    .flink .tag .bd {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff;
+      animation: pulse-white 1.6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .flink .label { font-size: 15.5px; font-weight: 700; letter-spacing: -.005em; color: var(--ink); }
+    .flink .sub   { font-size: 12.5px; color: var(--ink-2); font-weight: 500; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .flink .chev { color: var(--red); z-index: 2; position: relative; }
+    .flink .chev svg { width: 18px; height: 18px; display: block; }
+
+    /* ── links ── */
+    nav.links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .link {
+      display: grid;
+      grid-template-columns: 44px 1fr 24px;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--ink);
+      text-decoration: none;
+      box-shadow: var(--shadow-1);
+      transition: transform .25s cubic-bezier(.2,.7,.2,1),
+                  box-shadow .25s ease,
+                  border-color .25s ease;
+      position: relative;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(225,58,46,.04), transparent);
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+    }
+    .link:hover { transform: translateY(-1px); border-color: var(--line-2); box-shadow: var(--shadow-2); }
+    .link:hover::after { opacity: 1; }
+    .link:hover .chev { color: var(--red); transform: translateX(3px); }
+    .link:active { transform: translateY(0); }
+
+    .link .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: #F5F5F5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      transition: background .25s ease, color .25s ease;
+      flex-shrink: 0;
+    }
+    .link:hover .icon { background: var(--red-soft); color: var(--red-dark); }
+    .link .icon svg { width: 19px; height: 19px; display: block; }
+
+    .link .body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .link .label {
+      font-size: 15.5px;
+      font-weight: 600;
+      letter-spacing: -.005em;
+      color: var(--ink);
+    }
+    .link .sub {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: .005em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link .chev {
+      color: #C4C4C4;
+      transition: color .25s ease, transform .25s ease;
+    }
+    .link .chev svg { width: 18px; height: 18px; display: block; }
+
+    /* ── footer ── */
+    footer {
+      margin-top: 8px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--line-2);
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: .02em;
+    }
+
+    /* ── entry animation ── */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    header, .flink, .link, footer { animation: rise .55s cubic-bezier(.2,.7,.2,1) both; }
+    header                 { animation-delay: .02s; }
+    .flink                 { animation-delay: .10s; }
+    .link:nth-child(1)     { animation-delay: .16s; }
+    .link:nth-child(2)     { animation-delay: .22s; }
+    .link:nth-child(3)     { animation-delay: .28s; }
+    .link:nth-child(4)     { animation-delay: .34s; }
+    .link:nth-child(5)     { animation-delay: .40s; }
+    .link:nth-child(6)     { animation-delay: .46s; }
+    footer                 { animation-delay: .52s; }
+
+    @media (max-width: 420px) {
+      body { padding: 28px 16px 32px; }
+      .stage { gap: 18px; }
+      .link, .flink { padding: 13px 14px; grid-template-columns: 40px 1fr 22px; gap: 12px; }
+      .link .icon, .flink .icon { width: 38px; height: 38px; border-radius: 10px; }
+      .link .label, .flink .label { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="stage">
+
+  <header>
+    <img class="logo" src="logo-original.webp" alt="Municipio de Lobos" />
+  </header>
+
+  <!--
+    LINKS ESPECIALES / TEMPORALES
+    Agregá o quitá bloques <a class="flink"> acá arriba para promocionar
+    inscripciones, trámites o campañas puntuales. Reemplazá el href="#"
+    y los textos de label/sub por los definitivos.
+  -->
+  <section class="featured">
+    <a class="flink" href="https://forms.gle/raM6xJfaWLBjudez7" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.9 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9 2.9-6Z"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">DOBLE IMPACTO (inscripción)</span>
+        <span class="sub">Torneo de pádel adaptado</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+  </section>
+
+  <nav class="links">
+
+    <a class="link" href="https://lobos.gob.ar" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3Z"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">Sitio Oficial</span>
+        <span class="sub">lobos.gob.ar</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
+    <a class="link" href="https://instagram.com/municipiolobos" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">Instagram</span>
+        <span class="sub">@municipiolobos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
+    <a class="link" href="https://www.facebook.com/municipiolobos" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 21.94V13.5h2.83l.42-3.28H13.4V8.12c0-.95.26-1.6 1.63-1.6h1.74V3.58a23.4 23.4 0 0 0-2.54-.13c-2.51 0-4.23 1.53-4.23 4.34v2.42H7.16v3.28h2.84v8.45a10 10 0 0 0 3.4-.01z"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">Facebook</span>
+        <span class="sub">@municipiolobos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
+    <a class="link" href="https://www.youtube.com/@MunicipiodeLobos" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="3.2"/><polygon points="10.5 9.2 15.5 12 10.5 14.8" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">YouTube</span>
+        <span class="sub">@MunicipiodeLobos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
+    
+
+    <a class="link" href="https://whatsapp.com/channel/0029VaNntsdGzzKZSpZLXR0b" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7zM12.04 20.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23a7.5 7.5 0 0 1-1.39-1.72c-.14-.25 0-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.41-.55-.42-.14-.01-.31-.01-.47-.01a.9.9 0 0 0-.66.31c-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.55.12.16 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">Canal de WhatsApp</span>
+        <span class="sub">Enterate de todas las novedades</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
+  </nav>
+
+  <footer>© Municipio de Lobos</footer>
+
+</main>
+
+</body>
+</html>
