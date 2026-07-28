@@ -297,9 +297,15 @@
     Agregá o quitá bloques <a class="flink"> acá arriba para promocionar
     inscripciones, trámites o campañas puntuales. Reemplazá el href="#"
     y los textos de label/sub por los definitivos.
+
+    ►► PARA QUE DESAPAREZCA SOLO: editá la fecha en  data-hasta="..."
+       Formato:  AÑO-MES-DIAThora:min:seg-03:00   (hora de Argentina)
+       El link se oculta automáticamente pasada esa fecha/hora.
+       Si no querés que caduque, borrá el atributo data-hasta entero.
   -->
   <section class="featured">
-    <a class="flink" href="https://forms.gle/raM6xJfaWLBjudez7" target="_blank" rel="noopener">
+    <a class="flink" href="https://forms.gle/raM6xJfaWLBjudez7" target="_blank" rel="noopener"
+       data-hasta="2025-08-29T23:59:59-03:00">
       <span class="icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.9 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9 2.9-6Z"/></svg>
       </span>
@@ -387,6 +393,26 @@
   <footer>© Municipio de Lobos</footer>
 
 </main>
+
+<script>
+  // Oculta los destacados con data-hasta vencido (hora de Argentina, -03:00).
+  // No hace falta tocar nada acá: la fecha se edita arriba, en el atributo data-hasta.
+  (function () {
+    var ahora = new Date();
+    document.querySelectorAll('[data-hasta]').forEach(function (el) {
+      var hasta = new Date(el.getAttribute('data-hasta'));
+      if (!isNaN(hasta) && ahora > hasta) el.style.display = 'none';
+    });
+    // Si la sección de destacados quedó sin ningún link visible, la ocultamos entera.
+    document.querySelectorAll('section.featured').forEach(function (sec) {
+      var visibles = Array.prototype.filter.call(
+        sec.querySelectorAll('.flink'),
+        function (f) { return f.style.display !== 'none'; }
+      );
+      if (visibles.length === 0) sec.style.display = 'none';
+    });
+  })();
+</script>
 
 </body>
 </html>
