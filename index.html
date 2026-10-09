@@ -176,7 +176,8 @@
     }
     .flink.eco .icon { background: #285222; padding: 0; overflow: hidden; }
     .flink.eco .icon svg { width: 100%; height: 100%; }
-    .flink.eco .label { white-space: nowrap; }
+    /* título en una sola línea: en celulares angostos achica la letra para que entre */
+    .flink.eco .label { white-space: nowrap; font-size: min(15.5px, calc((100vw - 148px) / 16.6)); }
     .flink.eco .sub  { color: #3B4A2A; }
     .flink.eco .chev { color: #285222; }
 
@@ -324,8 +325,8 @@
         <svg viewBox="0 0 32 32"><rect width="32" height="32" fill="#285222"/><path d="M9 23c0-9 6-14 15-14 0 9-5 15-14 15" fill="#d3e129"/><path d="M8 25c4-5 8-8 12-10" stroke="#285222" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
       </span>
       <span class="body">
-        <span class="label">Ecolobos 2026</span>
-        <span class="sub">Un evento sustentable · Viernes 16/10 desde las 10 h en Plaza Martín Fierro, Empalme Lobos</span>
+        <span class="label">Ecolobos - Un evento sustentable</span>
+        <span class="sub">Viernes 16/10 desde las 10 h · Plaza Martín Fierro, Empalme Lobos</span>
       </span>
       <span class="chev">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
