@@ -166,6 +166,19 @@
     .flink .chev { color: var(--red); z-index: 2; position: relative; }
     .flink .chev svg { width: 18px; height: 18px; display: block; }
 
+    /* variante verde (Ecolobos): colores tomados de municipiodelobos.gob.ar/ecolobos */
+    .flink.eco {
+      background: linear-gradient(135deg, #F3F8E0 0%, #FFFFFF 65%);
+      border-color: #CFE0B8;
+      box-shadow: 0 0 0 1px rgba(40,82,34,.06),
+                  var(--shadow-2),
+                  0 0 26px -10px rgba(90,127,41,.55);
+    }
+    .flink.eco .icon { background: #285222; padding: 0; overflow: hidden; }
+    .flink.eco .icon svg { width: 100%; height: 100%; }
+    .flink.eco .sub  { color: #3B4A2A; }
+    .flink.eco .chev { color: #285222; }
+
     /* ── links ── */
     nav.links {
       display: flex;
@@ -304,6 +317,20 @@
        Si no querés que caduque, borrá el atributo data-hasta entero.
   -->
   <section class="featured">
+    <a class="flink eco" href="https://municipiodelobos.gob.ar/ecolobos/" target="_blank" rel="noopener"
+       data-hasta="2026-10-16T23:59:59-03:00">
+      <span class="icon">
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" fill="#285222"/><path d="M9 23c0-9 6-14 15-14 0 9-5 15-14 15" fill="#d3e129"/><path d="M8 25c4-5 8-8 12-10" stroke="#285222" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">Ecolobos 2026 · Un evento sustentable</span>
+        <span class="sub">Viernes 16/10 desde las 10 h · Plaza Martín Fierro, Empalme Lobos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
     <a class="flink" href="https://rockalparque.municipiodelobos.gob.ar" target="_blank" rel="noopener">
       <span class="icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
