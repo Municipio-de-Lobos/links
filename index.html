@@ -181,18 +181,25 @@
     .flink.eco .sub  { color: #3B4A2A; }
     .flink.eco .chev { color: #285222; }
 
-    /* variante violeta (Juegos Bonaerenses): colores tomados de municipiodelobos.gob.ar/juegosbonaerenses */
+    /* variante Juegos Bonaerenses: paleta de municipiodelobos.gob.ar/juegosbonaerenses (violeta, magenta, naranja, cian, azul) */
     .flink.jb {
       background: linear-gradient(135deg, #EDE6F3 0%, #FFFFFF 65%);
       border-color: #C9BEDD;
       box-shadow: 0 0 0 1px rgba(62,46,91,.06),
                   var(--shadow-2),
-                  0 0 26px -10px rgba(90,74,122,.6);
+                  0 0 26px -10px rgba(228,24,108,.5);
     }
-    .flink.jb .icon { background: #fff; border: 1px solid #C9BEDD; padding: 3px; }
-    .flink.jb .icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .flink.jb .icon { background: #3E2E5B; padding: 0; overflow: hidden; }
+    .flink.jb .icon svg { width: 100%; height: 100%; }
     .flink.jb .sub  { color: #5E5078; }
-    .flink.jb .chev { color: #3E2E5B; }
+    .flink.jb .chev { color: #E4186C; }
+    /* franja de colores como la del banner de la web */
+    .flink.jb .body::after { display: none; }
+    .flink.jb { background-image: linear-gradient(90deg, #E4186C 0 25%, #EF8E23 25% 50%, #00A8B4 50% 75%, #295D99 75% 100%),
+                                  linear-gradient(135deg, #EDE6F3 0%, #FFFFFF 65%);
+                background-size: 100% 3px, 100% 100%;
+                background-position: left bottom, 0 0;
+                background-repeat: no-repeat; }
 
     /* ── links ── */
     nav.links {
@@ -334,7 +341,7 @@
   <section class="featured">
     <a class="flink jb" href="https://municipiodelobos.gob.ar/juegosbonaerenses/" target="_blank" rel="noopener">
       <span class="icon">
-        <img src="jb-icono.png" alt="" />
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" fill="#3E2E5B"/><path d="M6 27L20 5" stroke="#295D99" stroke-width="7" stroke-linecap="round"/><path d="M11 27L25 5" stroke="#00A8B4" stroke-width="7" stroke-linecap="round"/><path d="M16 21L21 13" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="25" cy="24" r="3.2" fill="none" stroke="#E4186C" stroke-width="2.4"/><path d="M4 9h6" stroke="#EF8E23" stroke-width="2.4" stroke-linecap="round"/></svg>
       </span>
       <span class="body">
         <span class="label">Juegos Bonaerenses</span>
