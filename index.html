@@ -181,6 +181,18 @@
     .flink.eco .sub  { color: #3B4A2A; }
     .flink.eco .chev { color: #285222; }
 
+    /* variante azul/dorado (Juegos Bonaerenses) */
+    .flink.jb {
+      background: linear-gradient(135deg, #E3EEFF 0%, #FFFFFF 65%);
+      border-color: #BFD3F2;
+      box-shadow: 0 0 0 1px rgba(20,60,140,.06),
+                  var(--shadow-2),
+                  0 0 26px -10px rgba(30,90,200,.55);
+    }
+    .flink.jb .icon { background: linear-gradient(135deg, #1D4ED8, #1E3A8A); color: #FBBF24; }
+    .flink.jb .sub  { color: #2B3F66; }
+    .flink.jb .chev { color: #1D4ED8; }
+
     /* ── links ── */
     nav.links {
       display: flex;
@@ -319,6 +331,19 @@
        Si no querés que caduque, borrá el atributo data-hasta entero.
   -->
   <section class="featured">
+    <a class="flink jb" href="https://municipiodelobos.gob.ar/juegosbonaerenses/" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+      </span>
+      <span class="body">
+        <span class="label">Juegos Bonaerenses</span>
+        <span class="sub">Cronograma, resultados, medallero y galería de fotos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+
     <a class="flink eco" href="https://municipiodelobos.gob.ar/ecolobos/" target="_blank" rel="noopener"
        data-hasta="2026-10-16T23:59:59-03:00">
       <span class="icon">
