@@ -201,6 +201,22 @@
                 background-position: left bottom, 0 0;
                 background-repeat: no-repeat; }
 
+    /* ── eventos anteriores (desplegable) ── */
+    section.past { display: flex; flex-direction: column; gap: 10px; }
+    .past-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; padding: 12px 16px;
+      font: inherit; font-size: 14px; font-weight: 700; color: var(--ink);
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow-1); cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .past-toggle:hover { border-color: var(--line-2); }
+    .past-toggle svg { width: 18px; height: 18px; transition: transform .25s ease; }
+    .past-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .past-list { display: flex; flex-direction: column; gap: 10px; }
+    .past-list[hidden] { display: none; }
+
     /* ── links ── */
     nav.links {
       display: flex;
@@ -299,7 +315,7 @@
       from { opacity: 0; transform: translateY(8px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    header, .flink, .link, footer { animation: rise .55s cubic-bezier(.2,.7,.2,1) both; }
+    header, .flink, .past-toggle, .link, footer { animation: rise .55s cubic-bezier(.2,.7,.2,1) both; }
     header                 { animation-delay: .02s; }
     .flink                 { animation-delay: .10s; }
     .link:nth-child(1)     { animation-delay: .16s; }
@@ -339,19 +355,6 @@
        Si no querés que caduque, borrá el atributo data-hasta entero.
   -->
   <section class="featured">
-    <a class="flink jb" href="https://municipiodelobos.gob.ar/juegosbonaerenses/" target="_blank" rel="noopener">
-      <span class="icon">
-        <svg viewBox="0 0 32 32"><defs><clipPath id="jbc"><rect width="32" height="32"/></clipPath></defs><rect width="32" height="32" fill="#3E2E5B"/><g clip-path="url(#jbc)"><g transform="rotate(28 16 16)"><rect x="1" y="9" width="8" height="30" rx="4" fill="#295D99"/><rect x="10" y="-4" width="10" height="34" rx="5" fill="#00A8B4"/><rect x="13.8" y="-1" width="2.4" height="24" rx="1.2" fill="#fff"/><rect x="21" y="3" width="8" height="34" rx="4" fill="#E4186C"/><path d="M2.5 14a2.5 2.5 0 0 1 5 0" stroke="#EF8E23" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="25" cy="30" r="1.4" fill="#fff"/></g></g></svg>
-      </span>
-      <span class="body">
-        <span class="label">Juegos Bonaerenses</span>
-        <span class="sub">Cronograma, resultados y galería de fotos</span>
-      </span>
-      <span class="chev">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-      </span>
-    </a>
-
     <a class="flink eco" href="https://municipiodelobos.gob.ar/ecolobos/" target="_blank" rel="noopener"
        data-hasta="2026-10-30T23:59:59-03:00">
       <span class="icon">
@@ -360,6 +363,26 @@
       <span class="body">
         <span class="label">Ecolobos - Un evento sustentable</span>
         <span class="sub">Viernes 30/10 desde las 10 h · Plaza Martín Fierro, Empalme Lobos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
+  </section>
+
+  <section class="past">
+    <button type="button" class="past-toggle" aria-expanded="false" aria-controls="past-list">
+      <span>Eventos anteriores</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="past-list" id="past-list" hidden>
+    <a class="flink jb" href="https://municipiodelobos.gob.ar/juegosbonaerenses/" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 32 32"><defs><clipPath id="jbc"><rect width="32" height="32"/></clipPath></defs><rect width="32" height="32" fill="#3E2E5B"/><g clip-path="url(#jbc)"><g transform="rotate(28 16 16)"><rect x="1" y="9" width="8" height="30" rx="4" fill="#295D99"/><rect x="10" y="-4" width="10" height="34" rx="5" fill="#00A8B4"/><rect x="13.8" y="-1" width="2.4" height="24" rx="1.2" fill="#fff"/><rect x="21" y="3" width="8" height="34" rx="4" fill="#E4186C"/><path d="M2.5 14a2.5 2.5 0 0 1 5 0" stroke="#EF8E23" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="25" cy="30" r="1.4" fill="#fff"/></g></g></svg>
+      </span>
+      <span class="body">
+        <span class="label">Juegos Bonaerenses</span>
+        <span class="sub">Cronograma, resultados y galería de fotos</span>
       </span>
       <span class="chev">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
@@ -377,6 +400,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
       </span>
     </a>
+    </div>
   </section>
 
   <nav class="links">
@@ -483,6 +507,17 @@
         function (f) { return f.style.display !== 'none'; }
       );
       if (visibles.length === 0) sec.style.display = 'none';
+    });
+  })();
+  // Desplegable "Eventos anteriores".
+  (function () {
+    var btn = document.querySelector('.past-toggle');
+    var list = document.getElementById('past-list');
+    if (!btn || !list) return;
+    btn.addEventListener('click', function () {
+      var abierto = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!abierto));
+      list.hidden = abierto;
     });
   })();
 </script>
