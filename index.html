@@ -201,6 +201,22 @@
                 background-position: left bottom, 0 0;
                 background-repeat: no-repeat; }
 
+    /* variante Mes de la Tradición: paleta de municipiodelobos.gob.ar/tradicion (marrón cuero, ocre, naranja, celeste, azul, petróleo) */
+    .flink.trad {
+      background-image: linear-gradient(90deg, #6c3812 0 16.66%, #2ea8e0 16.66% 33.33%, #4967ae 33.33% 50%, #f6ab39 50% 66.66%, #d8a560 66.66% 83.33%, #21718c 83.33% 100%),
+                        linear-gradient(135deg, #F3EADD 0%, #FFFFFF 65%);
+      background-size: 100% 3px, 100% 100%;
+      background-position: left bottom, 0 0;
+      background-repeat: no-repeat;
+      border-color: #E0CDB4;
+      box-shadow: 0 0 0 1px rgba(108,56,18,.06),
+                  var(--shadow-2),
+                  0 0 26px -10px rgba(189,22,34,.45);
+    }
+    .flink.trad { grid-template-columns: 1fr 24px; }
+    .flink.trad .sub  { color: #6c3812; }
+    .flink.trad .chev { color: #bd1622; }
+
     /* ── eventos anteriores (desplegable) ── */
     section.past { display: flex; flex-direction: column; gap: 10px; }
     .past-toggle {
@@ -355,6 +371,16 @@
        Si no querés que caduque, borrá el atributo data-hasta entero.
   -->
   <section class="featured">
+    <a class="flink trad" href="https://municipiodelobos.gob.ar/tradicion/" target="_blank" rel="noopener">
+      <span class="body">
+        <span class="tag"><span class="bd"></span>Noviembre</span>
+        <span class="label">Mes de la Tradición</span>
+        <span class="sub">Fiesta de la Tradición y el Asado · Galería de fotos</span>
+      </span>
+      <span class="chev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </span>
+    </a>
     <a class="flink eco" href="https://municipiodelobos.gob.ar/ecolobos/" target="_blank" rel="noopener"
        data-hasta="2026-10-30T23:59:59-03:00">
       <span class="icon">
